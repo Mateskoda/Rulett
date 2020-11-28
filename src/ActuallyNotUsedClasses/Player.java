@@ -1,3 +1,5 @@
+package ActuallyNotUsedClasses;
+
 public class Player {
     private String name;
     private int startingCapital;

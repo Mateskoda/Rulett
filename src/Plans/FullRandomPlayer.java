@@ -1,4 +1,8 @@
-public class FullRandomPlayer extends Strategy{
+package Plans;
+
+import ActuallyNotUsedClasses.Strategy;
+
+public class FullRandomPlayer extends Strategy {
 
     public FullRandomPlayer(String name, int startingCapital, Strategy strategy) {
         super(name, startingCapital, strategy);

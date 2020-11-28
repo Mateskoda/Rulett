@@ -1,4 +1,6 @@
-public abstract class Strategy extends Player{
+package ActuallyNotUsedClasses;
+
+public abstract class Strategy extends Player {
     Strategy strategy;
 
     public Strategy(String name, int startingCapital, Strategy strategy) {
