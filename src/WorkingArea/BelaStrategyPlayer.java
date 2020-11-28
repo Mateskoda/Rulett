@@ -1,28 +1,34 @@
 package WorkingArea;
 
 public class BelaStrategyPlayer extends Player {
+    double startingPreviousBet;
+//    his strategy is,that he starts with the lowest bet (1)
+//    and every time he loose he double his previouse bet,
+//    if he wins, he starts it from beginning
 
-
-    public BelaStrategyPlayer(String name, int startingCapital) {
+    public BelaStrategyPlayer(String name, int startingCapital, double stratingPreviousBet) {
 
         super(name, startingCapital);
-        previousBet = 0.5;
-        winnersMultiplier=1;
-
+        setPreviousBet(stratingPreviousBet);
+        setWinnersMultiplier(1);
+        this.startingPreviousBet = stratingPreviousBet;
     }
-
-//    public int getActuelBet() {
-//        return actuelBet;
-//    }
 
     @Override
     public void takeABet() {
-        actuelBet = (int) (previousBet * 2);
-         betNumbers = new int[]{1, 3, 5, 7, 9, 12,
-                 14, 16, 18, 19, 21, 23,
-                 25, 27, 30, 32, 34, 36};
+        if (getPreviousTurnCapital() < getActualCapital()) {
+            setPreviousBet(startingPreviousBet);
+        }
+        if ((int) (getPreviousBet() * 2) <= RulettApp.getMaxBet()) {
+            setActuelBet((int) (getPreviousBet() * 2));
+        } else {
+            setActuelBet(RulettApp.maxBet);
+        }
+        setBetNumbers(new int[]{1, 3, 5, 7, 9, 12,
+                14, 16, 18, 19, 21, 23,
+                25, 27, 30, 32, 34, 36});
         Bet betName = Bet.RED;
-        previousBet = actuelBet;
+        setPreviousBet(getActuelBet());
     }
 
 }
