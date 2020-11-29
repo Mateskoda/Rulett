@@ -1,5 +1,8 @@
 package WorkingArea;
 
+
+
+
 public class BelaStrategyPlayer extends Player {
     double startingPreviousBet;
 //    his strategy is,that he starts with the lowest bet (1)
@@ -16,10 +19,10 @@ public class BelaStrategyPlayer extends Player {
 
     @Override
     public void takeABet() {
-        if (getPreviousTurnCapital() < getActualCapital()) {
+        if (getPreviousTurnCapital() < getActualCapital()) {    //ha nyert az elozo korben
             setPreviousBet(startingPreviousBet);
         }
-        if ((int) (getPreviousBet() * 2) <= RulettApp.getMaxBet()) {
+        if ((int) (getPreviousBet() * 2) <= RulettApp.getMaxBet()) {        //ha vesztett az elozo korben
             setActuelBet((int) (getPreviousBet() * 2));
         } else {
             setActuelBet(RulettApp.maxBet);
