@@ -1,14 +1,28 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package WorkingArea;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
 public class UserInterface extends JFrame implements ActionListener {
     JRadioButton r1;
     JRadioButton r2;
-    JFrame f;
+    JFrame f = new JFrame();
     JPanel radioButtons;
     JPanel myGamePanel1;
     JPanel myGamePanel2;
@@ -20,151 +34,124 @@ public class UserInterface extends JFrame implements ActionListener {
     JButton submit2;
     JButton btReturn2;
     JButton btReturn3;
-
     JComboBox comboOfBets;
     JComboBox comboNumsOnWheel;
     static String nameOfPlayer = "";
     String rangedBet;
     Integer numBet;
+    Integer betAmount;
     static int startingCapital;
 
-
     public UserInterface() {
-        f = new JFrame();
-        f.getContentPane().setBackground(Color.GRAY);
-
-        myGamePanel1 = myGame1();
-        myGamePanel2 = myGame2();
-        myGamePanel1.setSize(800, 600);
-
-        radioButtons = new JPanel();
-        r1 = new JRadioButton("szimulaciót szeretnék futtatni");
-        r2 = new JRadioButton("játszani szeretnék egyet!");
-        radioButtons.add(r1);
-        radioButtons.add(r2);
+        this.f.getContentPane().setBackground(Color.GRAY);
+        this.myGamePanel1 = this.myGame1();
+        this.myGamePanel2 = this.myGame2();
+        this.myGamePanel1.setSize(800, 600);
+        this.radioButtons = new JPanel();
+        this.r1 = new JRadioButton("szimulaciót szeretnék futtatni");
+        this.r2 = new JRadioButton("játszani szeretnék egyet!");
+        this.radioButtons.add(this.r1);
+        this.radioButtons.add(this.r2);
         ButtonGroup bg = new ButtonGroup();
-        bg.add(r1);
-        bg.add(r2);                      //azert kell ButtonGroup ba tenni oket, hogy egyszerre csak egy lehessen kivalasztva!!!
-        r1.addActionListener(this);
-        r1.addActionListener(this);
-
-        JLabel lab1 = new JLabel("Üvözölük a rulett játékban!");
-
-       panel=new JPanel();
-        panel.add(radioButtons);
-
-        f.add(panel);
-        f.setSize(800, 600);
-        f.setVisible(true);
-
+        bg.add(this.r1);
+        bg.add(this.r2);
+        this.r1.addActionListener(this);
+        this.r1.addActionListener(this);
+        new JLabel("Üvözölük a rulett játékban!");
+        this.panel = new JPanel();
+        this.panel.add(this.radioButtons);
+        this.f.add(this.panel);
+        this.f.setSize(800, 600);
+        this.f.setVisible(true);
     }
 
-    @Override
     public void actionPerformed(ActionEvent e) {
-        if (r1.isSelected()) {
-            f.remove(panel);
-            f.add(myGamePanel1);
-            //f.pack();
-            f.setVisible(true);
-            submit1.addActionListener(this);
-
-        }
-        if (r2.isSelected()) {
-
+        if (this.r1.isSelected()) {
+            this.f.remove(this.panel);
+            this.f.add(this.myGamePanel1);
+            this.f.setVisible(true);
         }
 
-        if (e.getSource() == submit1) {
-            //System.out.println("hello");
-            System.out.println(tfname.getText());
-            nameOfPlayer = tfname.getText() + "";
-            System.out.println(tfstartingCapital.getText());
-            startingCapital = Integer.parseInt(tfstartingCapital.getText());
-
-            f.remove(myGamePanel1);
-            f.add(myGamePanel2);
-            //f.pack();
-            f.setVisible(true);
-            submit2.addActionListener(this);
-
-
+        if (this.r2.isSelected()) {
+            RulettApp.userChoosedSimulation();
         }
-        if (e.getSource() == submit2) {
-            //System.out.println("hello");
-            rangedBet = (String) comboOfBets.getSelectedItem();
 
-            System.out.println(rangedBet);
-
-            numBet = (Integer) comboNumsOnWheel.getSelectedItem();
-
-            System.out.println(numBet); //f.remove(myGamePanel1);
-            // f.add(myGamePanel2);
-            //f.pack();
-            f.setVisible(true);
-            submit2.addActionListener(this);
-
+        if (e.getSource() == this.submit1) {
+            System.out.println(this.tfname.getText());
+            nameOfPlayer = this.tfname.getText();
+            System.out.println(this.tfstartingCapital.getText());
+            startingCapital = Integer.parseInt(this.tfstartingCapital.getText());
+            this.f.remove(this.myGamePanel1);
+            this.f.add(this.myGamePanel2);
+            this.f.setVisible(true);
         }
-    if(e.getSource()==btReturn2 || e.getSource()==btReturn2 ){
 
-    }
+        if (e.getSource() == this.submit2) {
+            this.rangedBet = (String)this.comboOfBets.getSelectedItem();
+            this.betAmount = Integer.parseInt(this.tfBetAmount.getText());
+            this.numBet = (Integer)this.comboNumsOnWheel.getSelectedItem();
+            RulettApp.userChoosedToPlay();
+            System.out.println(this.numBet);
+            this.f.setVisible(true);
+        }
 
+        if (e.getSource() == this.btReturn2) {
+        }
 
     }
 
     public JPanel myGame1() {
-        tfname = new JTextField("adja meg a nevet!", 20);
-        tfstartingCapital = new JTextField("adja meg a játékra szánt pénzét!", 10);
-        submit1 = new JButton("elküldés");
-        btReturn2 = new JButton("vissza");
-        myGamePanel1 = new JPanel();
+        this.tfname = new JTextField("adja meg a nevet!", 20);
+        this.tfstartingCapital = new JTextField("adja meg a játékra szánt pénzét!", 10);
+        this.submit1 = new JButton("elküldés");
+        this.submit1.addActionListener(this);
+        this.btReturn2 = new JButton("vissza");
+        this.myGamePanel1 = new JPanel();
         JPanel tfieldPan = new JPanel();
-
         tfieldPan.setLayout(new GridLayout(3, 1));
-        tfieldPan.add(tfname);
-        tfieldPan.add(tfstartingCapital);
-
-        myGamePanel1.add(tfieldPan);
-        myGamePanel1.add(submit1);
-        myGamePanel1.add(btReturn2);
-
-        return myGamePanel1;
+        tfieldPan.add(this.tfname);
+        tfieldPan.add(this.tfstartingCapital);
+        this.myGamePanel1.add(tfieldPan);
+        this.myGamePanel1.add(this.submit1);
+        this.myGamePanel1.add(this.btReturn2);
+        return this.myGamePanel1;
     }
-
 
     public JPanel myGame2() {
-
         JLabel nameLabel = new JLabel();
-        myGamePanel2 = new JPanel();
-
-        String[] bets = {"odds", "evens", "highs", "lows", "red", "black"};
-        comboOfBets = new JComboBox<String>(bets);
-        Integer[] nums = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36};
-        comboNumsOnWheel = new JComboBox<>(nums);
+        this.myGamePanel2 = new JPanel();
+        String[] bets = new String[]{"odds", "evens", "highs", "lows", "red", "black"};
+        this.comboOfBets = new JComboBox(bets);
+        Integer[] nums = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36};
+        this.comboNumsOnWheel = new JComboBox(nums);
         JPanel gamePan = new JPanel();
-        submit2 = new JButton("mehet a pörgettés!");
-        btReturn3 = new JButton("vissza");
-        tfBetAmount = new JTextField("mekkora a tét?");
-
+        this.submit2 = new JButton("mehet a pörgetés!");
+        this.submit2.addActionListener(this);
+        this.btReturn3 = new JButton("vissza");
+        this.tfBetAmount = new JTextField("mekkora a tét?");
         gamePan.setPreferredSize(new Dimension(600, 500));
-
-
-        //gamePan.setLayout(new BoxLayout(gamePan,BoxLayout.Y_AXIS));
         nameLabel.setText("Hello kedves " + nameOfPlayer + " kerem tedd meg a tétedet és a fogadásodat!");
-
         gamePan.add(nameLabel);
         gamePan.add(new JLabel("válassz a mezők közül, vagy adj meg egy számot"));
-        gamePan.add(comboOfBets);
-        gamePan.add(comboNumsOnWheel);
+        gamePan.add(this.comboOfBets);
+        gamePan.add(this.comboNumsOnWheel);
         gamePan.add(new JLabel("mennyi pézben fogadsz?"));
-        gamePan.add(tfBetAmount);
-
-        myGamePanel2.add(gamePan);
-        myGamePanel2.add(submit2);
-        myGamePanel2.add(btReturn3);
-
-        return myGamePanel2;
+        gamePan.add(this.tfBetAmount);
+        this.myGamePanel2.add(gamePan);
+        this.myGamePanel2.add(this.submit2);
+        this.myGamePanel2.add(this.btReturn3);
+        return this.myGamePanel2;
     }
 
+    public String getRangedBet() {
+        return this.rangedBet;
+    }
 
+    public Integer getBetAmount() {
+        return this.betAmount;
+    }
+
+    public Integer getNumBet() {
+        return this.numBet;
+    }
 }
-
-

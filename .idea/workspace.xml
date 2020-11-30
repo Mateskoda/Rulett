@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c9941c69-1297-455e-8c65-12b2a6f722a4" name="Default Changelist" comment="gave some comments, remove some statics and wrote the me class.&#10;Now We can play with the program, not                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          only run simulations. good night:)))">
+      <change beforePath="$PROJECT_DIR$/src/WorkingArea/RulettApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorkingArea/RulettApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WorkingArea/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorkingArea/UserInterface.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1kvwMIP2DmKfGfPvDZHORA2ftcF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="WorkingArea" />
+      <recent name="ActuallyNotUsedClasses" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.RulettApp">
+    <configuration name="RulettApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="WorkingArea.RulettApp" />
+      <module name="Rulett" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.WorkingArea.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RulettApp2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="WorkingArea.RulettApp2" />
+      <module name="Rulett" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.WorkingArea.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.RulettApp" />
+        <item itemvalue="Application.RulettApp2" />
+        <item itemvalue="Application.RulettApp" />
+        <item itemvalue="Application.RulettApp" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c9941c69-1297-455e-8c65-12b2a6f722a4" name="Default Changelist" comment="" />
+      <created>1606594327889</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606594327889</updated>
+    </task>
+    <task id="LOCAL-00001" summary="gave some comments, remove some statics and wrote the me class.&#10;Now We can play with the program, not only run simulations. good night:)))">
+      <created>1606610922666</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1606610922666</updated>
+    </task>
+    <task id="LOCAL-00002" summary="gave some comments, remove some statics and wrote the me class.&#10;Now We can play with the program, not only run simulations. good night:)))">
+      <created>1606725081794</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1606725081794</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="gave some comments, remove some statics and wrote the me class.&#10;Now We can play with the program, not only run simulations. good night:)))" />
+    <option name="LAST_COMMIT_MESSAGE" value="gave some comments, remove some statics and wrote the me class.&#10;Now We can play with the program, not only run simulations. good night:)))" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="443" y="109" width="1024" height="852" key="#Project_Structure" timestamp="1606743429032">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="443" y="109" width="1024" height="852" key="#Project_Structure/0.27.1920.1009@0.27.1920.1009" timestamp="1606743429032" />
+    <state x="418" y="189" width="1084" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606739881422">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="418" y="189" width="1084" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1009@0.27.1920.1009" timestamp="1606739881422" />
+    <state x="768" y="250" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1606742780460">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="768" y="250" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1009@0.27.1920.1009" timestamp="1606742780460" />
+    <state x="566" y="99" width="777" height="871" key="CommitChangelistDialog2" timestamp="1606737583340">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="566" y="99" width="777" height="871" key="CommitChangelistDialog2/0.27.1920.1009@0.27.1920.1009" timestamp="1606737583340" />
+    <state x="181" y="104" width="1720" height="809" key="DiffContextDialog" timestamp="1606737841151">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="181" y="104" width="1720" height="809" key="DiffContextDialog/0.27.1920.1009@0.27.1920.1009" timestamp="1606737841151" />
+    <state x="743" y="289" width="735" height="512" key="FileChooserDialogImpl" timestamp="1606740595879">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="743" y="289" width="735" height="512" key="FileChooserDialogImpl/0.27.1920.1009@0.27.1920.1009" timestamp="1606740595879" />
+    <state width="1874" height="320" key="GridCell.Tab.0.bottom" timestamp="1606737839971">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state width="1874" height="320" key="GridCell.Tab.0.bottom/0.27.1920.1009@0.27.1920.1009" timestamp="1606737839971" />
+    <state width="1874" height="320" key="GridCell.Tab.0.center" timestamp="1606737839970">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state width="1874" height="320" key="GridCell.Tab.0.center/0.27.1920.1009@0.27.1920.1009" timestamp="1606737839970" />
+    <state width="1874" height="320" key="GridCell.Tab.0.left" timestamp="1606737839970">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state width="1874" height="320" key="GridCell.Tab.0.left/0.27.1920.1009@0.27.1920.1009" timestamp="1606737839970" />
+    <state width="1874" height="320" key="GridCell.Tab.0.right" timestamp="1606737839971">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state width="1874" height="320" key="GridCell.Tab.0.right/0.27.1920.1009@0.27.1920.1009" timestamp="1606737839971" />
+    <state width="1874" height="320" key="GridCell.Tab.1.bottom" timestamp="1606737839973">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state width="1874" height="320" key="GridCell.Tab.1.bottom/0.27.1920.1009@0.27.1920.1009" timestamp="1606737839973" />
+    <state width="1874" height="320" key="GridCell.Tab.1.center" timestamp="1606737839972">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state width="1874" height="320" key="GridCell.Tab.1.center/0.27.1920.1009@0.27.1920.1009" timestamp="1606737839972" />
+    <state width="1874" height="320" key="GridCell.Tab.1.left" timestamp="1606737839972">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state width="1874" height="320" key="GridCell.Tab.1.left/0.27.1920.1009@0.27.1920.1009" timestamp="1606737839972" />
+    <state width="1874" height="320" key="GridCell.Tab.1.right" timestamp="1606737839972">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state width="1874" height="320" key="GridCell.Tab.1.right/0.27.1920.1009@0.27.1920.1009" timestamp="1606737839972" />
+    <state x="182" y="117" width="1536" height="844" key="MergeDialog" timestamp="1606736580461">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="182" y="117" width="1536" height="844" key="MergeDialog/0.27.1920.1009@0.27.1920.1009" timestamp="1606736580461" />
+    <state x="591" y="294" width="728" height="482" key="MultipleFileMergeDialog" timestamp="1606726496225">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="591" y="294" width="728" height="482" key="MultipleFileMergeDialog/0.27.1920.1009@0.27.1920.1009" timestamp="1606726496225" />
+    <state x="229" y="78" width="1022" height="737" key="SettingsEditor" timestamp="1606743670537">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="229" y="78" width="1022" height="737" key="SettingsEditor/0.27.1920.1009@0.27.1920.1009" timestamp="1606743670537" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1606739825849">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.27.1920.1009@0.27.1920.1009" timestamp="1606739825849" />
+    <state x="446" y="435" width="1018" height="200" key="VCS.ChangelistChooser" timestamp="1606737502569">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="446" y="435" width="1018" height="200" key="VCS.ChangelistChooser/0.27.1920.1009@0.27.1920.1009" timestamp="1606737502569" />
+    <state x="555" y="267" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1606725091001">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="555" y="267" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1009@0.27.1920.1009" timestamp="1606725091001" />
+    <state x="100" y="127" width="1720" height="809" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606736312582">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="100" y="127" width="1720" height="809" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.27.1920.1009@0.27.1920.1009" timestamp="1606736312582" />
+    <state x="741" y="446" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606740422744">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="741" y="446" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1920.1009@0.27.1920.1009" timestamp="1606740422744" />
+    <state x="100" y="127" width="1720" height="809" maximized="true" key="dock-window-1" timestamp="1606605608553">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="100" y="127" width="1720" height="809" maximized="true" key="dock-window-1/0.27.1920.1009@0.27.1920.1009" timestamp="1606605608553" />
+    <state x="682" y="225" width="546" height="619" key="git4idea.branch.GitSmartOperationDialog" timestamp="1606736523670">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="682" y="225" width="546" height="619" key="git4idea.branch.GitSmartOperationDialog/0.27.1920.1009@0.27.1920.1009" timestamp="1606736523670" />
+    <state x="623" y="248" width="672" height="678" key="search.everywhere.popup" timestamp="1606605740964">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="623" y="248" width="672" height="678" key="search.everywhere.popup/0.27.1920.1009@0.27.1920.1009" timestamp="1606605740964" />
+    <state x="793" y="325" width="324" height="419" key="svn.repositoryBrowser" timestamp="1606724126666">
+      <screen x="0" y="27" width="1920" height="1009" />
+    </state>
+    <state x="793" y="325" width="324" height="419" key="svn.repositoryBrowser/0.27.1920.1009@0.27.1920.1009" timestamp="1606724126666" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.desktop/javax/swing/JPanel.class</url>
+          <line>1</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
