@@ -1,4 +1,4 @@
-package Plans;
+package RulettTerminal;
 
 import ActuallyNotUsedClasses.Strategy;
 

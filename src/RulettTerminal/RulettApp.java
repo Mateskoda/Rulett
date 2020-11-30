@@ -1,6 +1,5 @@
-package WorkingArea;
+package RulettTerminal;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -58,7 +57,7 @@ UserInterface userInterface = new UserInterface();
             players.add(p1);
             players.add(p2);
         } else if (strategy.equals("random")) {
-            RandomStrategyPlayer p1 = new RandomStrategyPlayer("RandomBet", 100000);
+            RandomColorStrategyPlayer p1 = new RandomColorStrategyPlayer("RandomBet", 100000);
             players.add(p1);
         }
         simulateXTurn(x);
