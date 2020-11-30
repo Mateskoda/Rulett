@@ -34,6 +34,7 @@ public class UserInterface extends JFrame implements ActionListener {
     JButton submit2;
     JButton btReturn2;
     JButton btReturn3;
+    JLabel labelPrint;
     JComboBox comboOfBets;
     JComboBox comboNumsOnWheel;
     static String nameOfPlayer = "";
@@ -76,14 +77,14 @@ public class UserInterface extends JFrame implements ActionListener {
             RulettApp.userChoosedSimulation();
         }
 
-        if (e.getSource() == this.submit1) {
-            System.out.println(this.tfname.getText());
-            nameOfPlayer = this.tfname.getText();
-            System.out.println(this.tfstartingCapital.getText());
-            startingCapital = Integer.parseInt(this.tfstartingCapital.getText());
-            this.f.remove(this.myGamePanel1);
-            this.f.add(this.myGamePanel2);
-            this.f.setVisible(true);
+        if (e.getSource() == submit1) {
+            System.out.println(tfname.getText());
+            nameOfPlayer = tfname.getText();
+            System.out.println(tfstartingCapital.getText());
+            startingCapital = Integer.parseInt(tfstartingCapital.getText());
+            f.remove(myGamePanel1);
+            f.add(myGamePanel2);
+            f.setVisible(true);
         }
 
 
@@ -103,46 +104,48 @@ public class UserInterface extends JFrame implements ActionListener {
     }
 
     public JPanel myGame1() {
-        this.tfname = new JTextField("adja meg a nevet!", 20);
-        this.tfstartingCapital = new JTextField("adja meg a játékra szánt pénzét!", 10);
-        this.submit1 = new JButton("elküldés");
-        this.submit1.addActionListener(this);
-        this.btReturn2 = new JButton("vissza");
-        this.myGamePanel1 = new JPanel();
+        tfname = new JTextField("adja meg a nevet!", 20);
+       tfstartingCapital = new JTextField("adja meg a játékra szánt pénzét!", 10);
+        submit1 = new JButton("elküldés");
+        submit1.addActionListener(this);
+        btReturn2 = new JButton("vissza");
+        myGamePanel1 = new JPanel();
         JPanel tfieldPan = new JPanel();
         tfieldPan.setLayout(new GridLayout(3, 1));
-        tfieldPan.add(this.tfname);
-        tfieldPan.add(this.tfstartingCapital);
-        this.myGamePanel1.add(tfieldPan);
-        this.myGamePanel1.add(this.submit1);
-        this.myGamePanel1.add(this.btReturn2);
-        return this.myGamePanel1;
+        tfieldPan.add(tfname);
+        tfieldPan.add(tfstartingCapital);
+        myGamePanel1.add(tfieldPan);
+        myGamePanel1.add(submit1);
+        myGamePanel1.add(btReturn2);
+        return myGamePanel1;
     }
 
     public JPanel myGame2() {
         JLabel nameLabel = new JLabel();
-        this.myGamePanel2 = new JPanel();
+        labelPrint=new JLabel();
+        myGamePanel2 = new JPanel();
         String[] bets = new String[]{"odds", "evens", "highs", "lows", "red", "black"};
-        this.comboOfBets = new JComboBox(bets);
+        comboOfBets = new JComboBox(bets);
         Integer[] nums = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36};
-        this.comboNumsOnWheel = new JComboBox(nums);
+        comboNumsOnWheel = new JComboBox(nums);
         JPanel gamePan = new JPanel();
-        this.submit2 = new JButton("mehet a pörgetés!");
-        this.submit2.addActionListener(this);
-        this.btReturn3 = new JButton("vissza");
-        this.tfBetAmount = new JTextField("mekkora a tét?");
+        submit2 = new JButton("mehet a pörgetés!");
+        submit2.addActionListener(this);
+        btReturn3 = new JButton("vissza");
+        tfBetAmount = new JTextField("mekkora a tét?");
         gamePan.setPreferredSize(new Dimension(600, 500));
         nameLabel.setText("Hello kedves " + nameOfPlayer + " kerem tedd meg a tétedet és a fogadásodat!");
         gamePan.add(nameLabel);
         gamePan.add(new JLabel("válassz a mezők közül, vagy adj meg egy számot"));
-        gamePan.add(this.comboOfBets);
-        gamePan.add(this.comboNumsOnWheel);
+        gamePan.add(comboOfBets);
+        gamePan.add(comboNumsOnWheel);
         gamePan.add(new JLabel("mennyi pézben fogadsz?"));
-        gamePan.add(this.tfBetAmount);
-        this.myGamePanel2.add(gamePan);
-        this.myGamePanel2.add(this.submit2);
-        this.myGamePanel2.add(this.btReturn3);
-        return this.myGamePanel2;
+        gamePan.add(tfBetAmount);
+        myGamePanel2.add(gamePan);
+        myGamePanel2.add(submit2);
+        myGamePanel2.add(labelPrint);
+        myGamePanel2.add(btReturn3);
+        return myGamePanel2;
     }
 
     public int[] getRangedBet() {
@@ -152,12 +155,6 @@ public class UserInterface extends JFrame implements ActionListener {
             return new int[]{1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,35,37};
 
        //////////////////////to work out here
-
-
-
-
-
-
 
         }return null;
     }
@@ -176,5 +173,11 @@ public class UserInterface extends JFrame implements ActionListener {
 
     public int getStartingCapital() {
         return startingCapital;
+    }
+
+    public  void printResult(int winnerNumber, String name,int bet, int actualCapital, int rewards){
+
+        labelPrint.setText("Winner number:  "+winnerNumber+"    name:  "+name+" actual capital:     "+actualCapital+"   rewards: "+rewards);
+
     }
 }

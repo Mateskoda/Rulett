@@ -4,11 +4,11 @@
 //
 
 
-
+/*
 elvileg nem szamitja ki az actual capital, sum rewards ertekekt, ugy tunik hogy csak vesziteni tud........de azt jol
 csak az odds okra mukodik eddig
         a userinterface vegen lehet beadni a mezonyeremenyeket reprezentalo tomboket
-
+*/
 
 
 
@@ -74,8 +74,15 @@ public class RulettApp {
             Iterator var2 = players.iterator();
 
             while(var2.hasNext()) {
+
+
                 Player player = (Player)var2.next();
-                System.out.println("Name " + player.getName());
+                int sumOfRewards=player.getActualCapital() - player.getStartingCapital();
+                ui.printResult(winnerNumber,player.getName(),player.getActuelBet(),player.getActualCapital(),sumOfRewards);
+
+
+
+               // System.out.println("Name " + );
                 System.out.println("ActuelBet " + player.getActuelBet());
                 System.out.println("ActualCapital " + player.getActualCapital());
                 System.out.println("SumOfRewards " + (player.getActualCapital() - player.getStartingCapital()));
@@ -135,29 +142,20 @@ public class RulettApp {
     }
 
     public static void winnersReward() {
-        Iterator var0 = players.iterator();
-
-        while(true) {
-            while(var0.hasNext()) {
-                Player player = (Player)var0.next();
-
-                for(int i = 0; i < player.getBetNumbers().length; ++i) {
-                    if (player.getBetNumbers()[i] == winnerNumber) {
-                        int reward = player.getActuelBet() * player.getWinnersMultiplier();
-                        player.setPreviousTurnCapital(player.getActualCapital());
-                        player.setActualCapital(player.getActualCapital() + reward);
-                        System.out.println(player.getName() + " is a winner this time. ");
-                        break;
-                    }
-                }
-            }
-
-            return;
-        }
+      for(Player p:players){
+          for(int i=0;i<p.getBetNumbers().length;i++){
+              if(p.getBetNumbers()[i]==winnerNumber){
+                  int reward=p.getActualCapital()*p.getWinnersMultiplier();
+                  p.setActualCapital(p.getActualCapital()+reward);
+                  actualWinners.add(p);
+                  break;
+              }
+          }
+      }
     }
 
 
- hol teszi bele a gyoztest az actualwinnerbe
+// hol teszi bele a gyoztest az actualwinnerbe
 
     public static void losersReward() {
         Iterator var0 = players.iterator();
@@ -183,4 +181,6 @@ public class RulettApp {
     public static int getMaxBet() {
         return maxBet;
     }
+
+
 }
