@@ -5,7 +5,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class RulettApp {
-    //
     static ArrayList<Player> players = new ArrayList<>();
     static ArrayList<Player> actualWinners = new ArrayList<>();
     static int winnerNumber;
@@ -17,7 +16,6 @@ public class RulettApp {
 //    After we spin the wheel and get the winnernumber.
 //    If the player wins, his Capital will grow,
 //    otherwise he will lose his bet(money).
-//        System.out.println();
     static int maxBet = 10000;
 
     public static void main(String[] args) {
@@ -40,13 +38,17 @@ public class RulettApp {
         System.out.println("Add meg ,hány kört szimuláljunk");
         int x = Integer.parseInt(sc.nextLine());
 //        exeptiont lekezelni
-        System.out.println("Add meg ,milyen stratégiát szeretnél használni ( pl. martingal)");
+        System.out.println("Add meg ,milyen stratégiát szeretnél használni ( pl. martingal,random)");
         String strategy = sc.nextLine();
         if (strategy.equals("martingal")) {
             BelaStrategyPlayer p1 = new BelaStrategyPlayer("BélaMinBet", 100000, 0.5);
             BelaStrategyPlayer p2 = new BelaStrategyPlayer("BélaMaxBet", 100000, 10000);
             players.add(p1);
             players.add(p2);
+        }
+        else if (strategy.equals("random")){
+            RandomStrategyPlayer p1 = new RandomStrategyPlayer("RandomBet", 100000 );
+            players.add(p1);
         }
         simulateXTurn(x);
     }
@@ -58,7 +60,7 @@ public class RulettApp {
         System.out.println("Add meg ,mekkora kezdőértékkel indulsz");
         int startingCapital = Integer.parseInt(sc.nextLine());
         while (!endTheGame) {
-            System.out.println("Add meg ,hogy ebben a körben mire fogasz( pl. red)");
+            System.out.println("Add meg ,hogy ebben a körben mire fogadsz( pl. red)");
             String betName = sc.nextLine();
             System.out.println("Add meg ,mekkora összeget teszel fel");
             int actualBet = Integer.parseInt(sc.nextLine());
@@ -133,7 +135,7 @@ public class RulettApp {
 
         letrejonnek a jateokosok
       ActuallyNotUsedClasses.BelaStrategyPlayer b=  new ActuallyNotUsedClasses.BelaStrategyPlayer();
-      Plans.RandomStrategyPlayer r=new Plans.RandomStrategyPlayer();
+      WorkingArea.RandomStrategyPlayer r=new WorkingArea.RandomStrategyPlayer();
 
       Rulet2.Bet b=b.getBet()?????????????????
 */
@@ -151,6 +153,7 @@ public class RulettApp {
                     player.setPreviousTurnCapital(player.getActualCapital());
                     player.setActualCapital(player.getActualCapital() + reward);
                     actualWinners.add(player);
+                    System.out.println(player.getName()+" is a winner this time. ");
                     break;
                 }
             }
