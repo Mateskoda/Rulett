@@ -1,5 +1,6 @@
 package WorkingArea;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -34,10 +35,11 @@ public class RulettApp {
 
     public static void userChoosedSimulation() {
         Scanner sc = new Scanner(System.in);
-        String answer ;
+        String answer;
         System.out.println("Add meg ,hány kört szimuláljunk");
         int x = Integer.parseInt(sc.nextLine());
 //        exeptiont lekezelni
+//<<<<<<< HEAD
         System.out.println("Add meg ,milyen stratégiát szeretnél használni ( pl. martingal,random)");
         String strategy = sc.nextLine();
         if (strategy.equals("martingal")) {
@@ -45,13 +47,37 @@ public class RulettApp {
             BelaStrategyPlayer p2 = new BelaStrategyPlayer("BélaMaxBet", 100000, 10000);
             players.add(p1);
             players.add(p2);
-        }
-        else if (strategy.equals("random")){
-            RandomStrategyPlayer p1 = new RandomStrategyPlayer("RandomBet", 100000 );
+        } else if (strategy.equals("random")) {
+            RandomStrategyPlayer p1 = new RandomStrategyPlayer("RandomBet", 100000);
             players.add(p1);
         }
-        simulateXTurn(x);
-    }
+//        simulateXTurn(x);
+//    }
+//=======
+            System.out.println("Add meg ,milyen stratégiát szeretnél használni ( pl. martingal)");
+            String strategyOfPlayer = sc.nextLine();
+            if (strategyOfPlayer.equals("martingal")) {
+                BelaStrategyPlayer p1 = new BelaStrategyPlayer("BélaMinBet", 100000, 0.5);
+                BelaStrategyPlayer p2 = new BelaStrategyPlayer("BélaMaxBet", 100000, 10000);
+                players.add(p1);
+                players.add(p2);
+            }
+//            rp.simulateXTurn(x);
+        }
+
+        // if I want to play:
+//        else {
+//            Me me = new Me();
+//            players.removeAll(players);         //in case of simulation was runned before, and "players has already items in it......"
+//            players.add(me);
+//            rp.simulateXTurn(1);
+//
+//        }
+
+
+//       simulate10Turn();
+//        simulate100Turn();
+//>>>>>>> 0e55d2bad7e58bca6c59521c9c706933280a3731
 
     public static void userChoosedToPlay() {
         Scanner sc = new Scanner(System.in);
@@ -69,7 +95,7 @@ public class RulettApp {
             players.add(p1);}
             ((UserPlayer)players.get(0)).setBet(actualBet);
             ((UserPlayer)players.get(0)).setBetName(betName);
-            simulateXTurn(1);
+//            simulateXTurn(1);
 
         boolean rightAnswer = false;
         while (rightAnswer==false) {
@@ -87,7 +113,7 @@ public class RulettApp {
         }}
     }
 
-    public static void simulateXTurn(int x) {
+    public void simulateXTurn(int x) {               //runs the oneTurn() method x times
         for (int i = 0; i < x; i++) {
             oneTurn();
             System.out.println("winnerNumber :" + winnerNumber);
@@ -102,7 +128,7 @@ public class RulettApp {
         }
     }
 
-    public static void simulate10Turn() {
+    public void simulate10Turn() {
         for (int i = 0; i < 10; i++) {
             oneTurn();
             System.out.println("winnerNumber :" + winnerNumber);
@@ -113,7 +139,7 @@ public class RulettApp {
         }
     }
 
-    public static void simulate100Turn() {
+    public void simulate100Turn() {
         for (int i = 0; i < 100; i++) {
             oneTurn();
             System.out.println(winnerNumber + "winnerNumber");
@@ -124,7 +150,7 @@ public class RulettApp {
         }
     }
 
-    public static void oneTurn() {
+    public void oneTurn() {
         for (Player player : players) {
             player.takeABet();
         }
@@ -141,11 +167,11 @@ public class RulettApp {
 */
     }
 
-    public static int spinTheWheel() {
+    public int spinTheWheel() {
         return new Random().nextInt(37);//random szam
     }
 
-    public static void winnersReward() {
+    public void winnersReward() {
         for (Player player : players) {
             for (int i = 0; i < player.getBetNumbers().length; i++) {
                 if (player.getBetNumbers()[i] == winnerNumber) {
@@ -161,7 +187,7 @@ public class RulettApp {
 
     }
 
-    public static void losersReward() {
+    public void losersReward() {
         for (Player player : players) {
             if (!(actualWinners.contains(player))) {
                 player.setActualCapital(player.getActualCapital() - player.getActuelBet());
@@ -174,7 +200,7 @@ public class RulettApp {
         actualWinners = new ArrayList<>();
     }
 
-    public static int getMinBet() {
+    public int getMinBet() {
         return minBet;
     }
 
