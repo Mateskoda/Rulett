@@ -20,20 +20,29 @@ public class RulettApp {
     static int maxBet = 10000;
 
     public static void main(String[] args) {
-        RulettApp rp = new RulettApp();
+
+            RulettApp rp = new RulettApp();
 
         System.out.println("Játszani akarsz, vagy szimulációt indítani ( j / sz) !");
 //        exeptiont lekezelni
         Scanner sc = new Scanner(System.in);
         String answer = sc.nextLine();
         if (answer.equals("sz")) {
-            userChoosedSimulation();
+//            userChoosedSimulation();
         } else if (answer.equals("j")) {
-            userChoosedToPlay();
-        }
-    }
+//            userChoosedToPlay();
+            // if I want to play:
+            Me me = new Me();
+                players.removeAll(players);         //in case of simulation was runned before, and "players has already items in it......"
+                players.add(me);
+                rp.simulateXTurn(1);
 
-    public static void userChoosedSimulation() {
+            }
+
+        }
+
+
+    public  void userChoosedSimulation() {
         Scanner sc = new Scanner(System.in);
         String answer;
         System.out.println("Add meg ,hány kört szimuláljunk");
@@ -51,67 +60,49 @@ public class RulettApp {
             RandomStrategyPlayer p1 = new RandomStrategyPlayer("RandomBet", 100000);
             players.add(p1);
         }
-//        simulateXTurn(x);
-//    }
+        simulateXTurn(x);
+    }
 //=======
-            System.out.println("Add meg ,milyen stratégiát szeretnél használni ( pl. martingal)");
-            String strategyOfPlayer = sc.nextLine();
-            if (strategyOfPlayer.equals("martingal")) {
-                BelaStrategyPlayer p1 = new BelaStrategyPlayer("BélaMinBet", 100000, 0.5);
-                BelaStrategyPlayer p2 = new BelaStrategyPlayer("BélaMaxBet", 100000, 10000);
-                players.add(p1);
-                players.add(p2);
-            }
-//            rp.simulateXTurn(x);
-        }
 
-        // if I want to play:
-//        else {
-//            Me me = new Me();
-//            players.removeAll(players);         //in case of simulation was runned before, and "players has already items in it......"
-//            players.add(me);
-//            rp.simulateXTurn(1);
-//
-//        }
 
 
 //       simulate10Turn();
 //        simulate100Turn();
 //>>>>>>> 0e55d2bad7e58bca6c59521c9c706933280a3731
 
-    public static void userChoosedToPlay() {
-        Scanner sc = new Scanner(System.in);
-        String answer;
-        boolean endTheGame = false;
-        System.out.println("Add meg ,mekkora kezdőértékkel indulsz");
-        int startingCapital = Integer.parseInt(sc.nextLine());
-        while (!endTheGame) {
-            System.out.println("Add meg ,hogy ebben a körben mire fogadsz( pl. red)");
-            String betName = sc.nextLine();
-            System.out.println("Add meg ,mekkora összeget teszel fel");
-            int actualBet = Integer.parseInt(sc.nextLine());
-            if (players.isEmpty()){
-            UserPlayer p1 = new UserPlayer("User", startingCapital, betName, actualBet);
-            players.add(p1);}
-            ((UserPlayer)players.get(0)).setBet(actualBet);
-            ((UserPlayer)players.get(0)).setBetName(betName);
-//            simulateXTurn(1);
+//    public static void userChoosedToPlay() {
+//        Scanner sc = new Scanner(System.in);
+//        String answer;
+//        boolean endTheGame = false;
+//        System.out.println("Add meg ,mekkora kezdőértékkel indulsz");
+//        int startingCapital = Integer.parseInt(sc.nextLine());
+//        while (!endTheGame) {
+//            System.out.println("Add meg ,hogy ebben a körben mire fogadsz( pl. red)");
+//            String betName = sc.nextLine();
+//            System.out.println("Add meg ,mekkora összeget teszel fel");
+//            int actualBet = Integer.parseInt(sc.nextLine());
+//            if (players.isEmpty()){
+//            UserPlayer p1 = new UserPlayer("User", startingCapital, betName, actualBet);
+//            players.add(p1);}
+//            ((UserPlayer)players.get(0)).setBet(actualBet);
+//            ((UserPlayer)players.get(0)).setBetName(betName);
+//    //        simulateXTurn(1);
 
-        boolean rightAnswer = false;
-        while (rightAnswer==false) {
-            System.out.println("Játszol tovább ? (i/n)");
-            answer = sc.nextLine();
-            if (answer.equals("i")) {
-                endTheGame = false;
-                rightAnswer = true;
-            } else if (answer.equals("n")) {
-                endTheGame = true;
-                rightAnswer = true;
-            } else {
-                System.out.println("helytelen karakter. a helyes karakterválaszok i vagy n .");
-            }
-        }}
-    }
+//        boolean rightAnswer = false;
+//        while (rightAnswer==false) {
+//            System.out.println("Játszol tovább ? (i/n)");
+//            answer = sc.nextLine();
+//            if (answer.equals("i")) {
+//                endTheGame = false;
+//                rightAnswer = true;
+//            } else if (answer.equals("n")) {
+//                endTheGame = true;
+//                rightAnswer = true;
+//            } else {
+//                System.out.println("helytelen karakter. a helyes karakterválaszok i vagy n .");
+//            }
+//        }}
+//    }
 
     public void simulateXTurn(int x) {               //runs the oneTurn() method x times
         for (int i = 0; i < x; i++) {
