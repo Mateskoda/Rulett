@@ -1,8 +1,5 @@
 package WorkingArea;
 
-
-
-
 public class BelaStrategyPlayer extends Player {
     double startingPreviousBet;
 //    his strategy is,that he starts with the lowest bet (1)

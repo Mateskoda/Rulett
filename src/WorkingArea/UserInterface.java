@@ -21,16 +21,20 @@ public class UserInterface extends JFrame implements ActionListener {
     JPanel radioButtons;
     JPanel myGamePanel1;
     JPanel myGamePanel2;
+    JPanel myGamePanel3;
     JPanel panel;
     JTextField tfname;
     JTextField tfstartingCapital;
     JTextField tfBetAmount;
+    JTextField tfNumOfRounds;
     JButton submit1;
     JButton submit2;
+    JButton submit3;
     JButton btReturn2;
     JButton btReturn3;
     JLabel labelPrint;
     JComboBox comboOfBets;
+    JComboBox comboOfStrategy;
     JComboBox comboNumsOnWheel;
     static String nameOfPlayer = "";
     String rangedBet;
@@ -42,6 +46,7 @@ public class UserInterface extends JFrame implements ActionListener {
         f.getContentPane().setBackground(Color.GRAY);
         myGamePanel1 = myGame1();
         myGamePanel2 = myGame2();
+        myGamePanel3 = myGame3();
 
         radioButtons = new JPanel();
         r1 = new JRadioButton("játszani szeretnék egyet!");
@@ -52,7 +57,7 @@ public class UserInterface extends JFrame implements ActionListener {
         bg.add(r1);
         bg.add(r2);
         r1.addActionListener(this);
-        r1.addActionListener(this);
+        r2.addActionListener(this);
 
         new JLabel("Üvözölük a rulett játékban!");
         panel = new JPanel();
@@ -73,9 +78,11 @@ public class UserInterface extends JFrame implements ActionListener {
             f.add(myGamePanel1);
             f.setVisible(true);
         }
-        if (this.r2.isSelected()) {
-            RulettApp.userChoosedSimulation();
+        if (r2.isSelected()) {
 
+            f.remove(panel);
+            f.add(myGamePanel3);
+            f.setVisible(true);
 
             //coding here.....................
         }
@@ -95,7 +102,9 @@ public class UserInterface extends JFrame implements ActionListener {
             f.setVisible(true);
             RulettApp.userChoosedToPlay();
         }
-        if (e.getSource() == btReturn2) {
+        if (e.getSource() == submit3) {
+           // RulettApp.userChoosedSimulation();
+            System.out.println("ggg");
         }
     }
 
@@ -113,9 +122,10 @@ public class UserInterface extends JFrame implements ActionListener {
             public void keyPressed(KeyEvent keyEvent) {
                 if (!(Character.isDigit(keyEvent.getKeyChar()))) {
                     JOptionPane.showMessageDialog(f, "csak számokat tartalmazzon a mező");
-                    f.remove(panel);
+                   /* f.remove(myGamePanel1);
                     f.add(myGamePanel1);
-                    f.setVisible(true);
+                    f.setVisible(true);*/
+                    tfstartingCapital.setText("");
                 }
             }
 
@@ -124,7 +134,8 @@ public class UserInterface extends JFrame implements ActionListener {
 
             }
         });
-                submit1 = new JButton("elküldés");
+
+      submit1 = new JButton("elküldés");
         submit1.addActionListener(this);
         btReturn2 = new JButton("vissza");
         myGamePanel1 = new JPanel();
@@ -191,6 +202,65 @@ public class UserInterface extends JFrame implements ActionListener {
 
         return myGamePanel2;
     }
+
+
+
+
+    public JPanel myGame3() {
+
+        // jlabel a kiirashoz
+
+
+        tfname = new JTextField("adja meg a nevet!", 20);
+        tfNumOfRounds = new JTextField("adja meg a körök számát!", 10);
+        String[] nameOfStrat={"martingal","random"};
+        comboOfStrategy=new JComboBox(nameOfStrat);
+        tfNumOfRounds.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent keyEvent) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent keyEvent) {
+                if (!(Character.isDigit(keyEvent.getKeyChar()))) {
+                    JOptionPane.showMessageDialog(f, "csak számokat tartalmazzon a mező");
+                   /* f.remove(myGamePanel1);
+                    f.add(myGamePanel1);
+                    f.setVisible(true);*/
+                    tfNumOfRounds.setText("");
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent keyEvent) {
+
+            }
+        });
+        submit3 = new JButton("elküldés");
+        submit3.addActionListener(this);
+        btReturn2 = new JButton("vissza");
+        myGamePanel3 = new JPanel();
+        JPanel tfieldPan = new JPanel();
+        tfieldPan.setLayout(new GridLayout(3, 1));
+        tfieldPan.add(tfname);
+        tfieldPan.add(comboOfStrategy);
+        tfieldPan.add(tfNumOfRounds);
+        myGamePanel3.add(tfieldPan);
+        myGamePanel3.add(submit3);
+        myGamePanel3.add(btReturn2);
+        myGamePanel3.add(new JLabel(new ImageIcon("/home/gabor/IdeaProjects/Rulett/src/WorkingArea/rul.png")));
+        return myGamePanel3;
+    }
+
+
+
+
+
+
+
+
+
 
     public int[] getRangedBet() {
         switch(rangedBet){
