@@ -1,7 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
 
 package WorkingArea;
 
@@ -30,7 +26,6 @@ public class RulettApp {
     }
 
     public static void userChoosedSimulation() {
-   // code here
 
 
 
