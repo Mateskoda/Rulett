@@ -36,11 +36,13 @@ public class UserInterface extends JFrame implements ActionListener {
     JComboBox comboOfBets;
     JComboBox comboOfStrategy;
     JComboBox comboNumsOnWheel;
-    static String nameOfPlayer = "";
+    String nameOfPlayer;
+    String strategy;
     String rangedBet;
     int numBet[] = new int[37];
     int betAmount;
     static int startingCapital;
+    int numOfRounds;
 
     public UserInterface() {
         f.getContentPane().setBackground(Color.GRAY);
@@ -90,7 +92,7 @@ public class UserInterface extends JFrame implements ActionListener {
 
         if (e.getSource() == submit1) {
             nameOfPlayer = tfname.getText();
-            startingCapital = Integer.parseInt(tfstartingCapital.getText());
+            startingCapital = Integer.parseInt(tfstartingCapital.getText());   //System.out.println(nameOfPlayer+"igiguzuzfufufuzf"+startingCapital);
             f.remove(myGamePanel1);
             f.add(myGamePanel2);
             f.setVisible(true);
@@ -103,8 +105,10 @@ public class UserInterface extends JFrame implements ActionListener {
             RulettApp.userChoosedToPlay();
         }
         if (e.getSource() == submit3) {
-           // RulettApp.userChoosedSimulation();
-            System.out.println("ggg");
+            strategy = (String) comboOfStrategy.getSelectedItem();
+            numOfRounds=Integer.parseInt(tfNumOfRounds.getText());
+            RulettApp.userChoosedSimulation();
+            System.out.println("ggg");//*****************************+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         }
     }
 
@@ -112,7 +116,7 @@ public class UserInterface extends JFrame implements ActionListener {
         tfname = new JTextField("adja meg a nevet!", 20);
         tfstartingCapital = new JTextField("adja meg a játékra szánt pénzét!", 10);
 
-      tfstartingCapital.addKeyListener(new KeyListener() {
+        tfstartingCapital.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent keyEvent) {
 
@@ -135,7 +139,7 @@ public class UserInterface extends JFrame implements ActionListener {
             }
         });
 
-      submit1 = new JButton("elküldés");
+        submit1 = new JButton("elküldés");
         submit1.addActionListener(this);
         btReturn2 = new JButton("vissza");
         myGamePanel1 = new JPanel();
@@ -179,6 +183,7 @@ public class UserInterface extends JFrame implements ActionListener {
                     f.setVisible(true);
                 }
             }
+
             @Override
             public void keyReleased(KeyEvent keyEvent) {
 
@@ -195,15 +200,13 @@ public class UserInterface extends JFrame implements ActionListener {
         gameJPanel.add(new JLabel("mennyi pézben fogadsz?"));
         gameJPanel.add(tfBetAmount);
         myGamePanel2.add(gameJPanel);
-       gameJPanel.add(labelPrint);
+        gameJPanel.add(labelPrint);
         gameJPanel.add(submit2);
         gameJPanel.add(btReturn3);
 
 
         return myGamePanel2;
     }
-
-
 
 
     public JPanel myGame3() {
@@ -213,8 +216,9 @@ public class UserInterface extends JFrame implements ActionListener {
 
         tfname = new JTextField("adja meg a nevet!", 20);
         tfNumOfRounds = new JTextField("adja meg a körök számát!", 10);
-        String[] nameOfStrat={"martingal","random"};
-        comboOfStrategy=new JComboBox(nameOfStrat);
+        tfstartingCapital= new JTextField("adja meg a kezdő tőkét!", 10);
+        String[] nameOfStrat = {"martingal", "random"};
+        comboOfStrategy = new JComboBox(nameOfStrat);
         tfNumOfRounds.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent keyEvent) {
@@ -246,35 +250,28 @@ public class UserInterface extends JFrame implements ActionListener {
         tfieldPan.add(tfname);
         tfieldPan.add(comboOfStrategy);
         tfieldPan.add(tfNumOfRounds);
+        tfieldPan.add(tfstartingCapital);
         myGamePanel3.add(tfieldPan);
         myGamePanel3.add(submit3);
         myGamePanel3.add(btReturn2);
         myGamePanel3.add(new JLabel(new ImageIcon("/home/gabor/IdeaProjects/Rulett/src/WorkingArea/rul.png")));
         return myGamePanel3;
-    }
-
-
-
-
-
-
-
-
+    }/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     public int[] getRangedBet() {
-        switch(rangedBet){
+        switch (rangedBet) {
             case "odds":
             case "black":
                 return new int[]{1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 35, 37};
             case "evens":
-                return new int[]{0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36};
+                return new int[]{0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36};
             case "highs":
-                return new int[]{19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37};
+                return new int[]{19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37};
             case "lows":
-                return new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18};
-            case"red":
-                return new int[]{2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36};
+                return new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18};
+            case "red":
+                return new int[]{2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36};
         }
         return null;
     }
@@ -295,7 +292,15 @@ public class UserInterface extends JFrame implements ActionListener {
         return startingCapital;
     }
 
+    public int getNumOfRounds() {
+        return numOfRounds;
+    }
+
+    public String getStrategy() {
+        return strategy;
+    }
+
     public void printResult(int winnerNumber, String name, int bet, int actualCapital, int rewards) {
-        labelPrint.setText("<html>Winner number:  " + winnerNumber + "    name:  " + name + " <br/>"+"bet:    " + bet + " actual capital:     " + actualCapital + "   rewards: " + rewards+"</html>");
+        labelPrint.setText("<html>Winner number:  " + winnerNumber + "    name:  " + name + " <br/>" + "bet:    " + bet + " actual capital:     " + actualCapital + "   rewards: " + rewards + "</html>");
     }
 }
