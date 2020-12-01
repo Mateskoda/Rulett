@@ -23,19 +23,32 @@ public class RulettApp {
         new RulettApp();
         ui = new UserInterface();
         me = new Player(ui.getNameOfPlayer(), ui.getStartingCapital());
+
     }
 
     public static void userChoosedSimulation() {
+           String strategy= ui.getStrategy();
 
+           switch(strategy) {
+               case "martingal":
+                   BelaStrategyPlayer p=new BelaStrategyPlayer(ui.getNameOfPlayer(),ui.getStartingCapital(),0.5);
+                   players.add(p);
 
-
+                   break;
+           }
+        System.out.println(ui.getNumOfRounds());
+        simulateXTurn(ui.getNumOfRounds());
+        //int sum = ui.getStartingCapital();
+        //ui.printResult(winnerNumber, ui.getNameOfPlayer(), me.getActuelBet(), sum + me.getActualCapital(), me.getActualCapital());
+        players.clear();
 
     }
 
     public static void userChoosedToPlay() {
+
         expectedNums = ui.getNumBet();
         actualBet = ui.getBetAmount();
-        if (expectedNums.length == 0) {                      //ha egy szamra fogadunk akkor egy egy elemu int tombot adunk at a setbetnumbers()nek
+        if (expectedNums.length == 1) {                      //ha egy szamra fogadunk akkor egy egy elemu int tombot adunk at a setbetnumbers()nek
             me.setBetNumbers(ui.getRangedBet());
         } else {
             me.setBetNumbers(expectedNums);         //egy tombot agunk at ha tobb mezore fogadunk
@@ -47,6 +60,7 @@ public class RulettApp {
         simulateXTurn(1);
         int sum = ui.getStartingCapital();
         ui.printResult(winnerNumber, ui.getNameOfPlayer(), me.getActuelBet(), sum + me.getActualCapital(), me.getActualCapital());
+        //ui.printResult(winnerNumber,players.get(0).getName(),players.get(0).getActuelBet(),players.get(0).getSumOfRewards(),players.get(0).getActualCapital());
         players.clear();
     }
 
@@ -55,6 +69,24 @@ public class RulettApp {
             oneTurn();
         }
     }
+
+
+    public static void simulateXTurnForSimulation(int x) {
+        for (int i = 0; i < x; ++i) {
+            oneTurn();
+            System.out.println(winnerNumber);
+            for(Player p:players){
+                System.out.println(p.getName()+"name");
+                System.out.println(p.getActuelBet()+"actbet");
+                System.out.println(p.getActualCapital()+"actcap");
+                System.out.println(p.getActualCapital()-p.getStartingCapital());
+                System.out.println();
+            }
+            System.out.println();
+        }
+    }
+
+
 
 
     public void simulate10Turn() {
@@ -86,15 +118,13 @@ public class RulettApp {
     }
 
     public static void oneTurn() {
-        Iterator var0 = players.iterator();
-
-        while (var0.hasNext()) {
-            Player player = (Player) var0.next();
-            player.takeABet();
+        for(int i=0;i<players.size();i++){
+            players.get(i).takeABet();
         }
         winnerNumber = spinTheWheel();
         winnersReward();
         losersReward();
+        //System.out.println(players.get(0).getActualCapital());
     }
 
     public static int spinTheWheel() {
