@@ -5,9 +5,7 @@
 
 package WorkingArea;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
@@ -49,8 +47,19 @@ public class UserInterface extends JFrame implements ActionListener {
         this.myGamePanel2 = this.myGame2();
         this.myGamePanel1.setSize(800, 600);
         this.radioButtons = new JPanel();
-        this.r1 = new JRadioButton("szimulaciót szeretnék futtatni");
-        this.r2 = new JRadioButton("játszani szeretnék egyet!");
+        JLabel udv =new JLabel("Üvözöllek a rulett játékban!");
+        JLabel udv2 =new JLabel("Válassz az alábbi menüpontok közül :\n" +
+                 " " +
+                " " +
+                " " +
+                " " +
+                " " +
+                " " +
+                " " +
+                " ");
+
+        this.r1 = new JRadioButton("Játszani szeretnék egyet!");
+        this.r2 = new JRadioButton("Szimulaciót szeretnék futtatni");
         this.radioButtons.add(this.r1);
         this.radioButtons.add(this.r2);
         ButtonGroup bg = new ButtonGroup();
@@ -58,8 +67,10 @@ public class UserInterface extends JFrame implements ActionListener {
         bg.add(this.r2);
         this.r1.addActionListener(this);
         this.r1.addActionListener(this);
-        new JLabel("Üvözölük a rulett játékban!");
         this.panel = new JPanel();
+        panel.add(udv);
+        udv.setFont(new Font("", Font.PLAIN, 40));
+        panel.add(udv2);
         this.panel.add(this.radioButtons);
         this.f.add(this.panel);
         this.f.setSize(800, 600);
@@ -104,15 +115,25 @@ public class UserInterface extends JFrame implements ActionListener {
     }
 
     public JPanel myGame1() {
-        tfname = new JTextField("adja meg a nevet!", 20);
-       tfstartingCapital = new JTextField("adja meg a játékra szánt pénzét!", 10);
+        JLabel nameLabel = new JLabel();
+        labelPrint=new JLabel();
+        nameLabel.setText("Add meg a felhasználó nevedet!");
+
+        JLabel nameLabel2 = new JLabel();
+        labelPrint=new JLabel();
+        nameLabel2.setText("Add meg a játékra szánt pénzed!");
+
+        tfname = new JTextField("", 20);
+       tfstartingCapital = new JTextField("", 10);
         submit1 = new JButton("elküldés");
         submit1.addActionListener(this);
         btReturn2 = new JButton("vissza");
         myGamePanel1 = new JPanel();
         JPanel tfieldPan = new JPanel();
         tfieldPan.setLayout(new GridLayout(3, 1));
+        tfieldPan.add(nameLabel);
         tfieldPan.add(tfname);
+        tfieldPan.add(nameLabel2);
         tfieldPan.add(tfstartingCapital);
         myGamePanel1.add(tfieldPan);
         myGamePanel1.add(submit1);
