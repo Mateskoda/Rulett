@@ -12,7 +12,7 @@ public class Player {
     private int winnersMultiplier; // if the risk is bigger,this number will be bigger too
     private double previousBet = 0.5;
     private int actuelBet;
-    private int sumOfRewards = actualCapital - startingCapital;
+    private int sumOfRewards = actuelBet- startingCapital;
 
     public Player(String name, int startingCapital) {
         this.name = name;
