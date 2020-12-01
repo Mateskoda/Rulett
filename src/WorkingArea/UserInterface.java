@@ -42,17 +42,17 @@ public class UserInterface extends JFrame implements ActionListener {
         this.myGamePanel2 = this.myGame2();
         this.myGamePanel1.setSize(800, 600);
         this.radioButtons = new JPanel();
-        JLabel udv =new JLabel("Üvözöllek a rulett játékban!");
-        JLabel udv2 =new JLabel("Válassz az alábbi menüpontok közül :\n" +
-                 " " +
-                " " +
-                " " +
-                " " +
-                " " +
-                " " +
-                " " +
-                " ");
-
+//        JLabel udv =new JLabel("Üvözöllek a rulett játékban!");
+//        JLabel udv2 =new JLabel("Válassz az alábbi menüpontok közül :\n" +
+//                 " " +
+//                " " +
+//                " " +
+//                " " +
+//                " " +
+//                " " +
+//                " " +
+//                " ");
+//
         this.r1 = new JRadioButton("Játszani szeretnék egyet!");
         this.r2 = new JRadioButton("Szimulaciót szeretnék futtatni");
         this.radioButtons.add(this.r1);
@@ -72,9 +72,9 @@ public class UserInterface extends JFrame implements ActionListener {
         this.r1.addActionListener(this);
         this.r1.addActionListener(this);
         this.panel = new JPanel();
-        panel.add(udv);
-        udv.setFont(new Font("", Font.PLAIN, 40));
-        panel.add(udv2);
+//        panel.add(udv);
+//        udv.setFont(new Font("", Font.PLAIN, 40));
+//        panel.add(udv2);
         this.panel.add(this.radioButtons);
         this.f.add(this.panel);
         this.f.setSize(800, 600);
@@ -88,7 +88,7 @@ public class UserInterface extends JFrame implements ActionListener {
         panel = new JPanel();
         panel.add(radioButtons);
         f.add(panel);
-        panel.add(new JLabel(new ImageIcon("/home/gabor/IdeaProjects/Rulett/src/WorkingArea/rul.png")));
+        panel.add(new JLabel(new ImageIcon("Rulett/src/WorkingArea/rul.png")));
         f.setSize(800, 600);
         f.setResizable(false);
         f.setTitle("Roulete game by MATE & GABOR");
