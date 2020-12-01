@@ -1,3 +1,7 @@
+rewards es a vissza gomb megirasa de amugy jo
+
+
+
 
 package WorkingArea;
 
@@ -12,10 +16,11 @@ public class RulettApp {
     static int minBet = 1;
     static UserInterface ui;
     private static int[] expectedNums = new int[37];
-    static int[] getRangedBet=new int[0];
+    static int[] getRangedBet = new int[0];
     static int actualBet = 0;
     static int maxBet = 10000;
     static Player me;
+    static int sum2;
 
     public RulettApp() {
     }
@@ -28,17 +33,17 @@ public class RulettApp {
     }
 
     public static void userChoosedSimulation() {
-           String strategy= ui.getStrategy();
+        String strategy = ui.getStrategy();
+        BelaStrategyPlayer p = null;
+        switch (strategy) {
+            case "martingal":
+                p = new BelaStrategyPlayer(ui.getNameOfPlayer2(), ui.getStartingCapital2(), 0.5);
+                System.out.println(ui.getStartingCapital() + "fdfdfdfdfdfdfdf");
+                getRangedBet = new int[]{1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 28, 29, 31, 33, 35};
+                players.add(p);
 
-           switch(strategy) {
-               case "martingal":
-                   BelaStrategyPlayer p=new BelaStrategyPlayer(ui.getNameOfPlayer(),ui.getStartingCapital(),0.5);
-
-                   getRangedBet=new int[]{1,2,3,4};
-                   players.add(p);
-
-                   break;
-           }
+                break;
+        }
         System.out.println(ui.getNumOfRounds());
         simulateXTurnForSimulation(ui.getNumOfRounds());
         //int sum = ui.getStartingCapital();
@@ -100,28 +105,15 @@ public class RulettApp {
     public static void simulateXTurnForSimulation(int x) {
         for (int i = 0; i < x; ++i) {
             oneTurnSimulation();
-
-
-            System.out.println(winnerNumber);
-            for(Player p:players){
-               int reward=p.getActualCapital()-p.getStartingCapital();
-                ui.printResultforTextarea(winnerNumber, p.getName(), p.getActuelBet(),p.getActualCapital(),reward);
-                System.out.println(p.getName()+"name");
-                System.out.println(p.getActuelBet()+"actbet");
-                System.out.println(p.getActualCapital()+"actcapital");
-                System.out.println(p.getActualCapital()-p.getStartingCapital());
-                System.out.println();
-
+            for (Player p : players) {
+                ui.printResultforTextarea(winnerNumber, p.getName(), p.getActuelBet(), p.getStartingCapital() + p.getActuelBet(), p.getActualCapital() - p.getStartingCapital());
             }
-
-            }
-            System.out.println();
         }
-
+    }
 
 
     public static void oneTurn() {
-        for(int i=0;i<players.size();i++){
+        for (int i = 0; i < players.size(); i++) {
             players.get(i).takeABet();
         }
         winnerNumber = spinTheWheel();
@@ -131,7 +123,7 @@ public class RulettApp {
     }
 
     public static void oneTurnSimulation() {
-        for(int i=0;i<players.size();i++){
+        for (int i = 0; i < players.size(); i++) {
             players.get(i).takeABet();
         }
         winnerNumber = spinTheWheel();
@@ -149,14 +141,13 @@ public class RulettApp {
         for (Player p : players) {
             for (int i = 0; i < ui.getRangedBet().length; i++) {/////at kell adni a jateokosnak is
                 System.out.println(ui.getRangedBet()[i]);
-                if (ui.getRangedBet()[i]== winnerNumber) {
+                if (ui.getRangedBet()[i] == winnerNumber) {
                     actualWinners.add(p);
 
-                    if(ui.getRangedBet().length!=1){
+                    if (ui.getRangedBet().length != 1) {
                         sum = p.getActualCapital() + p.getActuelBet();
-                    }
-                    else{
-                        sum=p.getActualCapital() + p.getActuelBet()*5;
+                    } else {
+                        sum = p.getActualCapital() + p.getActuelBet() * 5;
                     }
                     p.setActualCapital(sum);
                     break;
@@ -166,26 +157,22 @@ public class RulettApp {
     }
 
     public static void winnersRewardSimulation() {
-        int sum;
+
         for (Player p : players) {
             for (int i = 0; i < getRangedBet.length; i++) {/////at kell adni a jateokosnak is
-                System.out.println(getRangedBet[i]);
-                if (getRangedBet[i]== winnerNumber) {
+                if (getRangedBet[i] == winnerNumber) {
                     actualWinners.add(p);
-
-                    if(getRangedBet.length!=1){
-                        sum = p.getActualCapital() + p.getActuelBet();
+                    if (getRangedBet.length != 1) {
+                        sum2= p.getActualCapital() + p.getActuelBet();
+                    } else {
+                        sum2= p.getActualCapital() + p.getActuelBet() * 5;
                     }
-                    else{
-                        sum=p.getActualCapital() + p.getActuelBet()*5;
-                    }
-                    p.setActualCapital(sum);
+                    p.setActualCapital(sum2);
                     break;
                 }
             }
         }
     }
-
 
 
     public static void losersReward() {
