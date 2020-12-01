@@ -23,6 +23,7 @@ public class UserInterface extends JFrame implements ActionListener {
     JPanel panel;
     JTextField tfname;
     JTextField tfstartingCapital;
+    JTextField tfstartingCapital2;
     JTextField tfBetAmount;
     JTextField tfNumOfRounds;
     JButton submit1;
@@ -39,7 +40,7 @@ public class UserInterface extends JFrame implements ActionListener {
     String rangedBet;
     int numBet[] = new int[37];
     int betAmount;
-    static int startingCapital;
+    int startingCapital;
     int numOfRounds;
 
     public UserInterface() {
@@ -122,7 +123,9 @@ public class UserInterface extends JFrame implements ActionListener {
 
         if (e.getSource() == submit1) {
             nameOfPlayer = tfname.getText();
-            startingCapital = Integer.parseInt(tfstartingCapital.getText());   //System.out.println(nameOfPlayer+"igiguzuzfufufuzf"+startingCapital);
+            String m = tfstartingCapital.getText();
+            System.out.println(m);
+            startingCapital = Integer.parseInt((String)(tfstartingCapital.getText()));   //System.out.println(nameOfPlayer+"igiguzuzfufufuzf"+startingCapital);
             f.remove(myGamePanel1);
             f.add(myGamePanel2);
             f.setVisible(true);
@@ -201,7 +204,9 @@ public class UserInterface extends JFrame implements ActionListener {
         JLabel nameLabel = new JLabel();
         labelPrint = new JLabel();
         myGamePanel2 = new JPanel();
-        String[] bets = new String[]{"odds", "evens", "highs", "lows", "red", "black"};
+        Bet[] bets = new Bet[]{Bet.TOP_LINE,Bet.FIRST_COLUMN,Bet.SECOND_COLUMN,Bet.THIRD_COLUMN,Bet.FIRST_DOZEN,
+                Bet.SECOND_DOZEN,Bet.THIRD_DOZEN,Bet.ONE_TO_EIGHTTEEN,Bet.NINETEEN_TO_THIRTYSIX,Bet.ODD,Bet.EVEN
+        ,Bet.RED,Bet.BLACK,Bet.LOW,Bet.HIGH,Bet.STRAIGHT_UP,Bet.STREET,Bet.CORNER,Bet.SIX_LINE};
         comboOfBets = new JComboBox(bets);
         Integer[] nums = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36};
         comboNumsOnWheel = new JComboBox(nums);
@@ -259,7 +264,7 @@ public class UserInterface extends JFrame implements ActionListener {
 
         tfname = new JTextField("adja meg a nevet!", 20);
         tfNumOfRounds = new JTextField("adja meg a körök számát!", 10);
-        tfstartingCapital= new JTextField("adja meg a kezdő tőkét!", 10);
+        tfstartingCapital2= new JTextField("adja meg a kezdő tőkét!", 10);
         String[] nameOfStrat = {"martingal", "random"};
         comboOfStrategy = new JComboBox(nameOfStrat);
         tfNumOfRounds.addKeyListener(new KeyListener() {
@@ -293,7 +298,7 @@ public class UserInterface extends JFrame implements ActionListener {
         tfieldPan.add(tfname);
         tfieldPan.add(comboOfStrategy);
         tfieldPan.add(tfNumOfRounds);
-        tfieldPan.add(tfstartingCapital);
+        tfieldPan.add(tfstartingCapital2);
         myGamePanel3.add(tfieldPan);
         myGamePanel3.add(submit3);
         myGamePanel3.add(btReturn2);
