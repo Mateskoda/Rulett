@@ -1,7 +1,6 @@
 //
 //  TODOS
-//a beviteli mezoket kezelni, a szimulaciot bedrotozni
-//
+
 
 package WorkingArea;
 
@@ -27,6 +26,7 @@ public class UserInterface extends JFrame implements ActionListener {
     JTextField tfstartingCapital;
     JTextField tfBetAmount;
     JTextField tfNumOfRounds;
+    JTextArea textArea;
     JButton submit1;
     JButton submit2;
     JButton submit3;
@@ -92,7 +92,7 @@ public class UserInterface extends JFrame implements ActionListener {
 
         if (e.getSource() == submit1) {
             nameOfPlayer = tfname.getText();
-            startingCapital = Integer.parseInt(tfstartingCapital.getText());   //System.out.println(nameOfPlayer+"igiguzuzfufufuzf"+startingCapital);
+            startingCapital = 1000;//Integer.parseInt(tfstartingCapital.getText());   //System.out.println(nameOfPlayer+"igiguzuzfufufuzf"+startingCapital);
             f.remove(myGamePanel1);
             f.add(myGamePanel2);
             f.setVisible(true);
@@ -108,7 +108,7 @@ public class UserInterface extends JFrame implements ActionListener {
             strategy = (String) comboOfStrategy.getSelectedItem();
             numOfRounds=Integer.parseInt(tfNumOfRounds.getText());
             RulettApp.userChoosedSimulation();
-            System.out.println("ggg");//*****************************+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            //*****************************+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         }
     }
 
@@ -139,7 +139,7 @@ public class UserInterface extends JFrame implements ActionListener {
             }
         });
 
-        submit1 = new JButton("elküldés");
+        submit1 = new JButton("szeretem a mézet:)");
         submit1.addActionListener(this);
         btReturn2 = new JButton("vissza");
         myGamePanel1 = new JPanel();
@@ -213,6 +213,7 @@ public class UserInterface extends JFrame implements ActionListener {
 
         // jlabel a kiirashoz
 
+        textArea=new JTextArea();
 
         tfname = new JTextField("adja meg a nevet!", 20);
         tfNumOfRounds = new JTextField("adja meg a körök számát!", 10);
@@ -245,16 +246,20 @@ public class UserInterface extends JFrame implements ActionListener {
         submit3.addActionListener(this);
         btReturn2 = new JButton("vissza");
         myGamePanel3 = new JPanel();
+
         JPanel tfieldPan = new JPanel();
         tfieldPan.setLayout(new GridLayout(3, 1));
         tfieldPan.add(tfname);
         tfieldPan.add(comboOfStrategy);
         tfieldPan.add(tfNumOfRounds);
         tfieldPan.add(tfstartingCapital);
+
         myGamePanel3.add(tfieldPan);
         myGamePanel3.add(submit3);
         myGamePanel3.add(btReturn2);
         myGamePanel3.add(new JLabel(new ImageIcon("/home/gabor/IdeaProjects/Rulett/src/WorkingArea/rul.png")));
+        myGamePanel3.add(textArea);
+
         return myGamePanel3;
     }/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -302,5 +307,9 @@ public class UserInterface extends JFrame implements ActionListener {
 
     public void printResult(int winnerNumber, String name, int bet, int actualCapital, int rewards) {
         labelPrint.setText("<html>Winner number:  " + winnerNumber + "    name:  " + name + " <br/>" + "bet:    " + bet + " actual capital:     " + actualCapital + "   rewards: " + rewards + "</html>");
+    }
+
+    public void printResultforTextarea(int winnerNumber, String name, int bet, int actualCapital, int rewards) {
+        textArea.append("Winner number:  " + winnerNumber +"   name:  " + name +"      bet:    " + bet + "     actual capital:     " + actualCapital +"    rewards: " + rewards +"\n");
     }
 }
